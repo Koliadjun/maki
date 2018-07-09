@@ -1,0 +1,25 @@
+{
+  "name": "nota",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {
+    "gulp-plumber-notifier": "0.0.3",
+    "gulp-server-livereload": "^1.9.2",
+    "module": "^1.2.5",
+    "node-notifier": "^5.2.1"
+  }
+}

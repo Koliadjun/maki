@@ -1,0 +1,46 @@
+.minus minus
+input(value='1')
+.plus plus
+- 
+  var images = [
+  'https://flowermag.com/wp-content/uploads/2017/08/dahlia12.jpg',
+  'https://flowermag.com/wp-content/uploads/2017/08/dahlia9.jpg',
+  'https://flowermag.com/wp-content/uploads/2017/08/dahlia19.jpeg'
+  ];
+- for (var i = 0; i < 6; i++)
+  .product-preview
+    .product-preview__big-image 
+      each img, index in images
+        img(src=img, alt='', data-img=index, data-colection=i)
+    .product-preview__thumbs
+      each img, index in images
+        .thumb
+          img(src=img, alt='', data-img-thumb=index, data-colection=i) 
+- for (var i = 0; i < 6; i++)
+  .product-preview-slick
+    .div(class="product-preview-slick__big-image"+i)
+
+        img(src=img, alt='', data-img=index, data-colection=i)
+    .div(class="product-preview-slick__thumbs"+i)
+      each img, index in images
+        img(src=img, alt='', data-img-thumb=index, data-colection=i) 
+  script.  
+    document.addEventListener("DOMContentLoaded", function(){
+      $('.product-preview-slick__big-image#{i}').slick({
+        slidesToShow: 1,
+        adaptiveHeight: true,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.product-preview-slick__thumbs#{i}'
+      });
+      $('.product-preview-slick__thumbs#{i}').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.product-preview-slick__big-image#{i}',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    })
+     

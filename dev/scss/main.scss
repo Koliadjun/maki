@@ -1,0 +1,35 @@
+@import 'vars';
+@import 'mixin';
+@import 'base';
+@import 'grid';
+.product-preview{
+  &__big-image{
+
+    max-width: 300px;
+    & img{
+      max-width: 100%;
+      display: none;
+      &.active{
+        display: block;
+      }
+    }
+  }
+  &__thumbs{
+
+    margin: 0 -20px;
+    & img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+.thumb{
+  display: inline-flex;
+  vertical-align: middle;
+  align-item: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  padding: 20px;
+}
