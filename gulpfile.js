@@ -51,7 +51,9 @@ gulp.task('watch',function(){
   gulp.watch(['./dev/*.pug','./dev/chunks/*.pug'], ['html'])
   gulp.watch('./dev/scss/*.scss',['css'])
   gulp.watch('./dev/js/*.js',['jsCopy'])
+  gulp.watch(['./dev/img/*.*','./dev/icons/*.*'], ['imgCopy'])
+
 })
 
 
-gulp.task('default',['html','watch','css','jsCopy','webserver'])
+gulp.task('default',['html','watch','css','jsCopy','webserver','imgCopy'])

@@ -1,5 +1,5 @@
 .wrapper{
-  max-width: 1170px;
+  max-width: 1000px;
   padding: 0 $opfsets;
   margin: 0 auto;
   @include breakpoint(sm)
@@ -17,31 +17,15 @@
   }
 }
 .row{
-  margin: 0 ($opfsets*-1)/2;
+  margin: 0 ($opfsets)*-1;
 }
 .clearfix:after{
   content: '';
   clear: both;
   display: block;
 }
-.col-tablet-1-2{
-  padding: 0 $opfsets/2;
-   @include breakpoint(md)
-  {
-    float: left;
-    width: 50%;
-  }
-}
-.col-tablet-1-3{
-  padding: 0 $opfsets/2;
-   @include breakpoint(md)
-  {
-    float: left;
-    width: 33.33%;
-  }
-}
+
 .col-desktop-1-3{
-  padding: 0 $opfsets/2;
    @include breakpoint(lg)
   {
     float: left;
@@ -49,18 +33,16 @@
   }
 }
 .col-desktop-1-4{
-  padding: 0 $opfsets/2;
    @include breakpoint(lg)
   {
     float: left;
     width: 25%;
   }
 }
-.col-desktop-3-4{
-  padding: 0 $opfsets/2;
+.col-desktop-2-4{
    @include breakpoint(lg)
   {
     float: left;
-    width: 75%;
+    width: 50%;
   }
 }
