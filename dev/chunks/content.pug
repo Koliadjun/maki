@@ -1,11 +1,17 @@
+.rate-input
+  -for(var i = 5; i > 0; i--)
+    input(type="radio", id="rate"+i, value=i, name ="rate")
+    label(for="rate"+i)
+
+
 .minus minus
 input(value='1')
 .plus plus
 - for (var i = 0; i < 6; i++)
   .product-preview
-    .product-preview__big-image 
-      each img, index in images
-        img(src=img, alt='', data-img=index, data-colection=i)
+    each img, index in images
+      .div(class="product-preview__big-image", data-img=index, data-colection=i)
+        img(src=img, alt='')
     .product-preview__thumbs
       each img, index in images
         .thumb
@@ -13,7 +19,6 @@ input(value='1')
 - for (var i = 0; i < 6; i++)
   .product-preview-slick
     .div(class="product-preview-slick__big-image"+i)
-
         img(src=img, alt='', data-img=index, data-colection=i)
     .div(class="product-preview-slick__thumbs"+i)
       each img, index in images
@@ -37,4 +42,4 @@ input(value='1')
         focusOnSelect: true
       });
     })
-     
+

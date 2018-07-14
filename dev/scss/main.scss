@@ -4,14 +4,13 @@
 @import 'grid';
 .product-preview{
   &__big-image{
-
+    display: none;
     max-width: 300px;
+    &.active{
+      display: block;
+    }
     & img{
       max-width: 100%;
-      display: none;
-      &.active{
-        display: block;
-      }
     }
   }
   &__thumbs{
@@ -33,27 +32,84 @@
   cursor: pointer;
   padding: 20px;
 }
+ul.menu{
+  display: block;
+  list-style: none;
+  text-align: center;
+  & li{
+    margin-right: 20px;
+    & a{
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      padding: 25px 15px;
+    }
+  }
+}
+.search-box{
+  text-align: center;
+  margin: 15px 0;
+  &__input{
+    display: inline-block;
+    overflow: hidden;
+    width: 0px;
+    height: 40px;
+    transition: 1s all ease;
+    vertical-align: middle;
+    & input{
+      font-size: 21px;
+      height: inherit;
+      width: inherit;
+    }
+    &.selected{
+      width: 170px;
+    }
+  }
+  &__button{
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ffa8a8;
+    cursor: pointer;
+    & button{
+      background: inherit;
+      border: 0px;
+      width: inherit;
+      height: inherit;
+      cursor: pointer;
+    }
+    &:before{
+      top:8px;
+      left: 8px;
+      content: '';
+      position: absolute;
+      display: block;
+      width: 13px;
+      height: 13px;
+      border-radius: 14px;
+      border: 2px solid #525252;
+    }
+    &:after{
+      content: '';
+      right: 5px;
+      bottom: 9px;
+      transform: rotate(45deg);
+      position: absolute;
+      display: block;
+      width: 10px;
+      height: 2px;
+      border-radius: 14px;
+      background: #525252;
+    }
+  }
+}
 .header{
   position: relative;
   &__menu{
-    display: block;
-    list-style: none;
     background: $utra-light-gray;
     border-bottom: 1px solid #ebebeb;
-    & li{
-      float: left;
-      margin-right: 20px;
-      & a{
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        padding: 25px 15px;
-      }
-    }
-    & input.search-box__input{
-      float: right;
-      margin: 25px 0;
-    }
   }
   &__content{
     background-image: url("../img/header-bg.png");
@@ -68,26 +124,11 @@
     height: 165px;
     width: 100%;
     background: #ffffffde;
-    & ul{
-      list-style: none;
-      display: inline-flex;
-      & li{
-        text-align: center;
-        padding: 20px 40px 30px 40px;
-        & .img-holder{
-          min-height: 98px;
-         }
-
-        & a{
-          display: block;
-          text-decoration: none;
-          color: inherit;
-        } 
-      }
-    }
   }
 }
 .logo{
+  text-align: center;
+   margin-bottom: $opfsets;
   &__img{
     margin-bottom: $opfsets;
   }
@@ -97,9 +138,9 @@
   }
 }
 .contacts{
+  text-align: center;
   font-size: 13px;
-  margin: 0 auto;
-  width: 42%;
+  margin-bottom: $opfsets;
   &__mail{
     margin-bottom: 20px;
     & a{
@@ -125,8 +166,71 @@
   }
 }
 .basket{
-  text-align: right;
+  text-align: center;
+  &_tablet{
+    @include breakpoint(md)
+    {
+      text-align: right;
+    }
+  }
   &__button{
 
   }
+}
+ul.nav-menu{
+  list-style: none;
+  flex-wrap: wrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  & li{
+    max-width: 170px;
+    text-align: center;
+    padding: 20px 40px 30px 40px;
+    & a{
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+      & .img-holder{
+        min-height: 98px;
+      }
+    }
+  }
+}
+.catalog{
+  position: relative;
+  text-align: center;
+  color: white;
+  transition: 1s all ease;
+  &__filter{
+    transition: 1s all ease;
+    position: absolute;
+    top:0;
+    height: 100px;
+    background: gray;
+    right: 0px;
+    width: 0;
+    display: none;
+     @include breakpoint(lg)
+      {
+        display: block; 
+      }
+    &_filtered{
+       @include breakpoint(lg)
+      {  
+        width: 25%;
+      }
+    }
+  }
+}
+
+.product{
+  height: 200px;
+  background: #000;
+  margin: 10px;
+}
+p{
+  display: block;
+  height: 1000px;
 }

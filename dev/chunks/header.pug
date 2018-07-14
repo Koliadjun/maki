@@ -1,22 +1,23 @@
 .header
-  ul.header__menu.clearfix
+  .header__menu.clearfix 
     .wrapper
       .row
-        each item in headerMenu
-          li
-            a(href=item.href)=item.title
-        .search-box
-          input.search-box__input
-          button.search-box__button
+        include menu 
+        .search-box.show-tablet-float-right
+          .search-box__input
+            input(type="text")
+          .search-box__button
+            button
   .header__content
     .wrapper
       .row
-        .col-desktop-1-4
+        .col-tablet-1-4
           .logo
             .logo__img
-              img(src="../img/logo.png")
+              a(href="#")
+                img(src="../img/logo.png")
             .logo__title Интернет-магазин цветов
-        .col-desktop-2-4
+        .col-tablet-2-4
           .contacts
             .contacts__address.
               г. Челябинск, ул. Воровского, 30А
@@ -25,18 +26,19 @@
             .contacts__tel
               a(href='tel:8(351) 567 21 46')| 8(351) 
                 span 567 21 46
-        .col-desktop-1-4
-          .basket
+        .col-tablet-1-4
+          .basket.basket_tablet
             .basket__button
               a(href="#")
                 img(src='../img/basket.png')
   .header__nav-menu
     .wrapper
       .row
-        ul
+        ul.nav-menu
           each item, index in navMenu
             li
-              .img-holder
-                img(src="../img/header-menu-img"+index+".png")
-              a(href=item.href)=item.title
+              a(href=item.href)
+                .img-holder
+                  img(src="../img/header-menu-img"+index+".png")
+                .title=item.title
 

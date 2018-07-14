@@ -4,6 +4,23 @@ html
   head
     include chunks/head
   body
-    include chunks/header  
+    include chunks/header
+    .wrapper
+      .row
+        .main
+          .catalog.clearfix
+            each item,index in product
+              .col-desktop-1-4
+                .product
+                  .product__img
+                  .product__title=item.title
+                  .product__price=item.price
+                  .product__button
+            .catalog__filter
+              button tongle 
+          p jvbjfbd
+    
+
+    //include chunks/content
   include chunks/script
 
