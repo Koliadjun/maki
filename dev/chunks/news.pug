@@ -1,0 +1,17 @@
+.news
+  .news__title
+    a(href="#") Новости
+  .news__link
+    a(href="#") Все новости
+  .news__holder
+    each item,index in news
+      .news-block
+        .news-block__img
+          img(src='../img/news-img'+index+'.png')
+        .news-block__button
+          a(href=item.href) читать...
+        .news-block__date
+          a(href="#")=item.date
+        .news-block__title
+          a(href=item.href)=item.title
+

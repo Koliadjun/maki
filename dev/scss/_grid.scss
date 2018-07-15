@@ -1,10 +1,10 @@
 .wrapper{
   max-width: 1000px;
-  padding: 0 $opfsets;
+  padding: 0 $ofsets;
   margin: 0 auto;
 }
 .row{
-  margin: 0 ($opfsets)*-1;
+  margin: 0 ($ofsets)*-1;
 }
 .clearfix:after{
   content: '';
@@ -14,13 +14,22 @@
 .show-tablet-float-right{
   @include breakpoint(md)
   {
+    vertical-align: middle;
     float: right;
   }
 }
 .show-tablet-float-left{
   @include breakpoint(md)
   {
+    vertical-align: middle;
     float: left;
+  }
+}
+.show-tablet-inline-block{
+   @include breakpoint(md)
+  {
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 .show-tablet-width-1-6{
@@ -78,6 +87,25 @@
     width: 50%;
   }
 }
+.col-desktop-1-2{
+   @include breakpoint(lg)
+  {
+    float: left;
+    width: 50%;
+  }
+}
+.col-desktop-1-2_right{
+   @include breakpoint(lg)
+  {
+    float: right;
+  }
+}
+.col-tablet-1-3_with-filter{
+   @include breakpoint(md)
+  {
+    width: 50%;
+  }
+}
 .col-desktop-1-4_with-filter{
    @include breakpoint(lg)
   {
@@ -85,8 +113,16 @@
   }
 }
 .catalog_with-filter{
+  @include breakpoint(md)
+  {
+    padding-right: 33.33%;
+  }
    @include breakpoint(lg)
   {
     padding-right: 25%;
   }
+}
+
+[class*="col-"] {
+  padding: 0 $ofsets;
 }

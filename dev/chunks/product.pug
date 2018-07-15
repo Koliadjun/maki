@@ -1,0 +1,12 @@
+.product
+  a(href=item.href)
+    .product__img
+      img(src='../img/product-img'+index+'.png')
+    .product__special-img
+      -if(!item.specialState=='')
+        img(src='../icons/'+item.specialState+'.png')
+    .product__title=item.title
+    .product__price=item.price
+  .product__button
+    .button  
+      button заказать

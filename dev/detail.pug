@@ -1,0 +1,28 @@
+doctype
+html
+  include chunks/variables 
+  head
+    include chunks/head
+  body
+    include chunks/header
+    .main
+      .wrapper
+        .row
+          .content.clearfix
+            .col-desktop-1-2
+              - for (var i = 0; i < 1; i++)
+                .product-preview
+                  each img, index in images
+                    .div(class="product-preview__big-image", data-img=index, data-colection=i)
+                      img(src=img, alt='')
+                  .product-preview__thumbs
+                    each img, index in images
+                      .thumb
+                        img(src=img, alt='', data-img-thumb=index, data-colection=i)
+            .col-desktop-1-2.col-desktop-1-2_right
+              include chunks/product-about 
+            .col-desktop-1-2
+              include chunks/reviews
+          include chunks/news
+    include chunks/footer
+  include chunks/script

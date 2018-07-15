@@ -2,6 +2,7 @@ $('.product-preview').each(function(){
   $('.product-preview__big-image', this).eq(0).addClass('active');
 })
 $('[data-img-thumb]').on('click', function(){
+  console.log('cliked')
   var imgIndex = $(this).data('img-thumb');
   var colectionIndex = $(this).data('colection')
   $('[data-img][data-colection="'+colectionIndex+'"]').removeClass('active');
@@ -30,6 +31,7 @@ $('.catalog__filter').on('click',function(){
   $('.catalog').toggleClass("catalog_with-filter");
   $('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
   $('.catalog__filter').toggleClass("catalog__filter_filtered");
+  $('.col-tablet-1-3').toggleClass("col-tablet-1-3_with-filter");
 })
 var scrollPos = 0;
 window.addEventListener('scroll', throttle(callback, 10));

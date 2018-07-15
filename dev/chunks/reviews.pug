@@ -1,0 +1,32 @@
+.reviews
+  .reviews__title Отзывы покупателей
+  .reviews__count 2 отзива
+  .clearfix
+  .reviews__holder
+    each item,index in reviews
+      .review
+        .review__date
+          a(href="#")=item.date
+        .review__author=item.author
+        .review__rating
+          .rate-input
+          -for(var i = 5; i > 0; i--)
+            input(type="radio", id="rate"+i, value=i, name ="rate")
+            label(for="rate"+i)
+        .clearfix
+        .review__text
+          span=item.text
+  .reviews__show-more
+    a(href='#') Показать еще
+  .reviews__input-title Написать отзыв:
+  .reviews__rate
+    .rate-input
+      -for(var i = 5; i > 0; i--)
+        input(type="radio", id="rate"+i, value=i, name ="rate")
+        label(for="rate"+i)
+  .clearfix
+  .reviews__input
+    input
+  .reviews__button
+    .button
+      button отправить

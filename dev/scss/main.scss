@@ -112,6 +112,11 @@ ul.menu{
     border-bottom: 1px solid #ebebeb;
   }
   &__content{
+    text-align: center;
+    @include breakpoint(md)
+    {
+      text-align: inherit;
+    }
     background-image: url("../img/header-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -121,16 +126,14 @@ ul.menu{
   &__nav-menu{
     position: absolute;
     bottom: 0;
-    height: 165px;
     width: 100%;
     background: #ffffffde;
   }
 }
 .logo{
-  text-align: center;
-   margin-bottom: $opfsets;
+  margin-bottom: $ofsets;
   &__img{
-    margin-bottom: $opfsets;
+    margin-bottom: $ofsets;
   }
   &__title{
     font-size: 12px;
@@ -138,9 +141,7 @@ ul.menu{
   }
 }
 .contacts{
-  text-align: center;
   font-size: 13px;
-  margin-bottom: $opfsets;
   &__mail{
     margin-bottom: 20px;
     & a{
@@ -148,22 +149,45 @@ ul.menu{
       text-decoration: none;
       font-size: inherit;
     }
+    &_white{
+      margin-bottom: 0;
+      & a{
+      background-image: url("../icons/mail-icon-white.png");
+      background-repeat: no-repeat;
+      background-position: 4px 4px;
+      background-size: 14px 11px;
+      padding-left: 20px;
+      text-decoration: none;
+      color: #fff;
+      }
+    }
   }
   &__tel{
     & a{
-      background-image: url("../icons/telephone.png");
-      background-repeat: no-repeat;
-      background-size: 20px 20px;
-      padding-left: 25px;
       color: #ff9999;
       font-size: 15px;
-      text-decoration: none;
       & span{
         font-size: 21px;
         color: #333333;
       }
     }
+    &_white{
+      & a{
+        background-image: url("../icons/tel-icon-white.png");
+        color: #fff;
+        & span{
+          color: #fff;
+        }
+      }
+    }
   }
+}
+[href^="tel:"]{
+  background-image: url("../icons/tel-icon-black.png");
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-left: 25px;
+  text-decoration: none;
 }
 .basket{
   text-align: center;
@@ -193,6 +217,15 @@ ul.nav-menu{
       color: inherit;
       text-align: center;
       & .img-holder{
+        display: none;
+        @include breakpoint(xs)
+        {
+          display: none;
+        }
+        @include breakpoint(md)
+        {
+          display: block;
+        }
         min-height: 98px;
       }
     }
@@ -226,11 +259,357 @@ ul.nav-menu{
 }
 
 .product{
-  height: 200px;
-  background: #000;
-  margin: 10px;
+  a{
+    text-decoration: none;
+    color: #333333;
+  }
+  position: relative;
+  background: #fff;
+  color: #333333;
+  font-size: 15px;
+  &__img{
+    min-height: 225px;
+  }
+  &__special-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__title{
+    margin-bottom: $ofsets;
+    padding: 0 $ofsets;
+    min-height: 40px;
+  }
+  &__price{
+    margin-bottom: $ofsets;
+  }
+  &__button{
+
+  }
 }
-p{
-  display: block;
-  height: 1000px;
+.button{
+  button{
+    position: relative;
+    text-transform: uppercase;
+    width: 135px;
+    height: 40px;
+    border: 1px solid #959595;
+    background: #fff;
+    cursor: pointer;
+    &:hover{
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
+      background: #ffaaaa; /* Old browsers */
+      background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+      color: #fff;
+      border: 0;
+    }
+  }
+}
+.button_rose{
+  & button{
+    background: #ffaaaa; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+    color: #fff;
+    border: 0;
+  }
+}
+.news{
+  margin-bottom: 100px;
+  &__title{
+    font-size: 23px; 
+    & a{
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &__link{
+    margin-bottom: 20px;
+    text-align: right;
+    & a{
+      color: #999999;
+      font-size: 13px;}
+  }
+  &__holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.news-block{
+  position: relative;
+  margin: auto;
+  @include breakpoint(lg)
+    {
+      margin: 0;
+    }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  &__img{
+    margin-bottom: 20px;
+    img{
+      max-width: 100%;
+    }
+  }
+  &__date{
+    margin-bottom: 5px;
+    & > a{
+      color: #999999;
+      font-style: italic;
+      font-size: 13px;
+    }
+  }
+  &__title{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  &__button{
+    position: absolute;
+    opacity: 0;
+    transition: .5S ALL ease;
+    background: #ff7575c2;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    width: 100%;
+    height: 75%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+      opacity: 1;
+    }
+    & a{
+      display: block;
+      width: 135px;
+      height: 40px;
+      border: 1px solid white;
+      padding: 7px;
+      text-transform: uppercase;
+      color: #fff;
+    }    
+  }
+}
+.footer{
+  text-align: center;
+  @include breakpoint(md)
+    {
+      text-align: left;
+    }
+  &__top{
+    background: #f0f0f0;
+  }
+  &__link{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: $ofsets;
+  @include breakpoint(md)
+    {
+      column-count: 3;
+    }
+  @include breakpoint(lg)
+    {
+      column-count: 3;
+      padding-right: 25%;
+      padding-left: 0;
+    }
+    & a{
+      display: block;
+      line-height: 26px;
+      padding: 2px;
+      color: #666666;
+      font-size: 13px;
+    }
+  }
+  &__bottom{
+    background: #ff7575;
+    padding: 5px 0;
+  }
+}
+.copyrighter{
+  color: #fff;
+  font-size: 13px;
+}
+.reviews{
+  &__title{
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__count{
+    float: right;
+    font-size: 15px;
+  }
+  &__holder{
+  }
+  &__rate{
+    float: right;
+  }
+  &__show-more{
+    text-align: center;
+    margin-bottom: 25px;
+    & a{
+      color: #999999;
+    }
+  }
+  &__input{
+    margin-bottom: 20px;
+    input{
+      min-height: 85px;
+      width: 100%;
+    }
+  }
+  &__input-title{
+    float: left;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  &__button{
+    text-align: center;
+  }
+}
+.review{
+  margin-bottom: 20px;
+  &__date{
+    & a{
+      text-decoration: none;
+      font-style: italic;
+      font-size: 13px;
+      color: #999999;
+    }
+  }
+  &__author{
+    font-size: 13px;
+    font-weight: bold;
+    float: left;
+    margin-bottom: 10px;
+  }
+  &__rating{
+    float: right;
+  }
+  &__text{
+    background: #f0f0f0;
+    padding: 20px;
+  }
+}
+.product-about{
+  float: left;
+  &__title{
+    font-size: 37px;
+  }
+  &__details{
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  &__info{
+    font-weight: initial;
+  }
+}
+.order{
+  background: #f0f0f0;
+  padding: 30px;
+  margin-bottom: 30px;
+  &__price{
+    font-size: 23px;
+    min-width: 50px;
+  }
+  &__count{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 20px;
+  }
+  &__count-holder{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 79px;
+    height: 26px;
+    text-align: center;
+    position: relative;
+    background: #fff;
+    & input{
+      text-align: center;
+      width: 33px;
+      border: 0;
+      min-height: 26px;
+    }
+  }
+  &__button{
+    float: right;
+  }
+  &__info{
+    padding-top: 20px;
+    border-top: 1px solid #fff; 
+  }
+}
+.minus,.plus{
+  cursor: pointer;
+  background: #f99a9a;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.plus{
+  top:3px;
+  right: 3px;
+  &:before{
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background: #fff;
+    top:9px;
+    right: 7px;
+  }
+  &:after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 6px;
+    background: #fff;
+    top:7px;
+    right: 9px;
+  }
+}
+.minus{
+  top:3px;
+  left: 3px;
+  &:before{
+    position: absolute;
+    top:9px;
+    left: 8px;
+    content: '';
+    width: 4px;
+    height: 2px;
+    background: #fff;
+  }
+}
+.delivery{
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  &__title{
+      margin-bottom: 20px;
+    }
+  .nighttime,.daytime{
+    font-size: inherit;
+    font-weight: initial;
+    margin-bottom: 15px;
+    & span{
+      font-weight: bold;
+    }
+  }
 }
