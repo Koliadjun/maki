@@ -38,6 +38,13 @@
     width: 16.66%;
   }
 }
+.col-phone-1-2{
+  @include breakpoint(sm)
+  {
+    float: left;
+    width: 50%;
+  }
+}
 .col-tablet-1-2{
   @include breakpoint(md)
   {

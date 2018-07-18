@@ -1,3 +1,10 @@
+$('.icon-menu').click(function(){
+     $(this).toggleClass('icon-menu-close');
+     $('.header__menu').toggleClass('active');
+})   
+$('.sidebar li').click(function(){
+  $(this).children().closest('ul').toggleClass('active');
+})
 $('.product-preview').each(function(){
   $('.product-preview__big-image', this).eq(0).addClass('active');
 })

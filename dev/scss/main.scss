@@ -33,7 +33,6 @@
   padding: 20px;
 }
 ul.menu{
-  display: block;
   list-style: none;
   text-align: center;
   & li{
@@ -46,29 +45,108 @@ ul.menu{
     }
   }
 }
+a.icon-menu {
+  position: fixed;
+  top: 40px;
+  right: 25px;
+  display: inline-flex;
+  border-radius: 50px;
+  border: 4px solid #fff ;
+  width: 50px;
+  height: 50px;
+  background: #ff7575;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.menu__opener{
+  position: fixed;
+  display: block;
+  z-index: 5;
+  @include breakpoint(md)
+  {
+    display: none;
+    overflow: visible;
+  }
+  & span {
+    transition: all 500ms ease-in-out;
+    display: block;
+    width: 43%;
+    height: 11%;
+    background: white;
+    position: relative;
+    border-radius: 10px;
+    margin: 2px -8px 3px 0px;
+    &:before {
+      content: '';
+      height: 100%;
+      width: 21%;
+      background: white;
+      position: absolute;
+      border-radius: 100%;
+      margin-left: -38%;
+    }
+  }
+}
+.icon-menu-close span:before{
+  height: 0;
+  width: 0;
+}
+.icon-menu-close span{
+  width: 72%;
+  margin: 3px 0 3px 0;
+  right: 0;
+}
+.icon-menu-close span:nth-child(1){
+  transform: rotate(45deg);
+  top: 25%;
+}
+.icon-menu-close span:nth-child(2){
+   background: transparent;
+}
+.icon-menu-close span:nth-child(3){
+  transform: rotate(-45deg);
+  bottom: 25%;
+}
 .search-box{
+  display: flex;
+  justify-content: center;
   text-align: center;
-  margin: 15px 0;
-  &__input{
-    display: inline-block;
+  @include breakpoint(md)
+  {
+    position: absolute;
+    top: 15px;
+    right: 15px; 
+  }
+    &__input{
     overflow: hidden;
-    width: 0px;
+    width: 170px;
     height: 40px;
     transition: 1s all ease;
-    vertical-align: middle;
+    @include breakpoint(md)
+    {
+      width: 0px;
+    }
     & input{
       font-size: 21px;
       height: inherit;
       width: inherit;
+      border: 1px solid #e1e1e1;
+      &:focus{
+        outline: 1px solid #e1e1e1;
+        border: 0;
+      }
     }
-    &.selected{
-      width: 170px;
+    &.selected{ 
+      @include breakpoint(md)
+      {
+        width: 220px;
+      }
     }
   }
   &__button{
     position: relative;
-    vertical-align: middle;
-    display: inline-block;
     width: 40px;
     height: 40px;
     border: 1px solid #ffa8a8;
@@ -105,28 +183,43 @@ ul.menu{
     }
   }
 }
+.search-box_filter{
+  position: static;
+}
 .header{
   position: relative;
+  background-image: url("../img/header-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   &__menu{
-    background: $utra-light-gray;
+    background: #ffffffcc;
     border-bottom: 1px solid #ebebeb;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: 1s all ease;
+    &.active {
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: scroll;
+    }
+    @include breakpoint(md)
+    {
+      position: static;
+    }
   }
   &__content{
     text-align: center;
     @include breakpoint(md)
     {
       text-align: inherit;
+      min-height: 320px;
     }
-    background-image: url("../img/header-bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 620px;
     padding: 20px 0;
   }
   &__nav-menu{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     background: #ffffffde;
   }
 }
@@ -140,8 +233,13 @@ ul.menu{
     color: #33333399
   }
 }
+.flex-contacts-wrap{
+  display: flex;
+  justify-content: space-around;
+}
 .contacts{
   font-size: 13px;
+  margin-bottom: 15px;
   &__mail{
     margin-bottom: 20px;
     & a{
@@ -204,9 +302,8 @@ ul.menu{
 ul.nav-menu{
   list-style: none;
   flex-wrap: wrap;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  justify-content: space-around;
   & li{
     max-width: 170px;
     text-align: center;
@@ -222,7 +319,7 @@ ul.nav-menu{
         {
           display: none;
         }
-        @include breakpoint(md)
+        @include breakpoint(sm)
         {
           display: block;
         }
@@ -240,24 +337,22 @@ ul.nav-menu{
     transition: 1s all ease;
     position: absolute;
     top:0;
-    height: 100px;
-    background: gray;
     right: 0px;
     width: 0;
     display: none;
-     @include breakpoint(lg)
+    @include breakpoint(md)
       {
         display: block; 
       }
     &_filtered{
-       @include breakpoint(lg)
+      overflow: hidden;
+       @include breakpoint(md)
       {  
         width: 25%;
       }
     }
   }
 }
-
 .product{
   a{
     text-decoration: none;
@@ -296,6 +391,16 @@ ul.nav-menu{
     border: 1px solid #959595;
     background: #fff;
     cursor: pointer;
+    &.active{
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
+      background: #ffaaaa; /* Old browsers */
+      background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+      color: #fff;
+      border: 0;
+    }
     &:hover{
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
       background: #ffaaaa; /* Old browsers */
@@ -305,6 +410,9 @@ ul.nav-menu{
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
       color: #fff;
       border: 0;
+    }
+    &:focus{
+      outline: 0;
     }
   }
 }
@@ -319,11 +427,18 @@ ul.nav-menu{
     border: 0;
   }
 }
+.button_rose-border{
+  & button{
+    border: 1px solid #ffa8a8;
+  }
+}
 .news{
+  color: #666666;
+  text-align: left;
   margin-bottom: 100px;
   &__title{
     font-size: 23px; 
-    & a{
+        & a{
       text-decoration: none;
       color: inherit;
     }
@@ -343,7 +458,7 @@ ul.nav-menu{
 }
 .news-block{
   position: relative;
-  margin: auto;
+  margin: 0 auto 15px auto;
   @include breakpoint(lg)
     {
       margin: 0;
@@ -411,7 +526,6 @@ ul.nav-menu{
   &__link{
   padding-top: 50px;
   padding-bottom: 50px;
-  padding-left: $ofsets;
   @include breakpoint(md)
     {
       column-count: 3;
@@ -428,6 +542,10 @@ ul.nav-menu{
       padding: 2px;
       color: #666666;
       font-size: 13px;
+      @include breakpoint(md)
+      {
+        margin-right: 40px;
+      }
     }
   }
   &__bottom{

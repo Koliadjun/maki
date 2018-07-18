@@ -1,17 +1,15 @@
 .footer
   .footer__top
     .wrapper
-      .row
-        .footer__link
-          each item in footerLinks
-            a(href=item.href)=item.title
+      .footer__link
+        each item in footerLinks
+          a(href=item.href)=item.title
   .footer__bottom.clearfix
     .wrapper
-      .row
-        .copyrighter.show-tablet-inline-block Служба доставки цветов &reg 2016
-        .contacts.show-tablet-float-right
-          .contacts__tel.contacts__tel_white.show-tablet-inline-block
-            a(href='tel:83515672146') 8 (351)
-              span  567 21 46
-          .contacts__mail.contacts__mail_white.show-tablet-inline-block
-            a(href='mailto:buket@mail.ru') buket@mail.ru
+      .copyrighter.show-tablet-inline-block Служба доставки цветов &reg 2016
+      .contacts.show-tablet-float-right
+        .contacts__tel.contacts__tel_white.show-tablet-inline-block
+          a(href='tel:83515672146') 8 (351)
+            span  567 21 46
+        .contacts__mail.contacts__mail_white.show-tablet-inline-block
+          a(href='mailto:buket@mail.ru') buket@mail.ru

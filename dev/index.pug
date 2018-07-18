@@ -5,16 +5,21 @@ html
     include chunks/head
   body
     include chunks/header
-    .main
-      .wrapper
-        .row
-          .catalog.clearfix
-            each item,index in product
-              .col-desktop-1-4.col-tablet-1-3
-                include chunks/product
-            .catalog__filter
-              button tongle 
-          include chunks/news
+    .wrapper
+      .catalog
+        .row.clearfix
+          each item,index in product
+            .col-desktop-1-4.col-tablet-1-3.col-phone-1-2
+              include chunks/product
+          .catalog__filter
+            .button.button_rose-border
+              button фильтр
+            .search-box.search-box_filter
+              .search-box__input
+                input(type="text")
+              .search-box__button
+                button   
+      include chunks/news
     include chunks/footer
   include chunks/script
 

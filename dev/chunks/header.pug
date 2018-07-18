@@ -1,31 +1,35 @@
 .header
   .header__menu.clearfix 
     .wrapper
-      .row
-        include menu 
-        .search-box.show-tablet-float-right
-          .search-box__input
-            input(type="text")
-          .search-box__button
-            button
+      .menu__opener
+        a.icon-menu
+          -for(var i=0; i<3; i++)
+            span
+      include menu 
+      .search-box
+        .search-box__input
+          input(type="text")
+        .search-box__button
+          button
   .header__content
     .wrapper
       .row.clearfix
-        .col-tablet-2-4
+        .col-tablet-1-4
           .logo
             .logo__img
               a(href="index.html")
                 img(src="../img/logo.png")
             .logo__title Интернет-магазин цветов
-        .col-tablet-1-4
-          .contacts
-            .contacts__address.
-              г. Челябинск, ул. Воровского, 30А
-            .contacts__mail
-              a(href='mailto:buket@mail.ru') e-mail: buket@mail.ru
-            .contacts__tel
-              a(href='tel:8(351) 567 21 46')| 8(351) 
-                span 567 21 46
+        .col-tablet-2-4
+          .flex-contacts-wrap
+            .contacts
+              .contacts__address.
+                г. Челябинск, ул. Воровского, 30А
+              .contacts__mail
+                a(href='mailto:buket@mail.ru') e-mail: buket@mail.ru
+              .contacts__tel
+                a(href='tel:8(351) 567 21 46')| 8(351) 
+                  span 567 21 46
         .col-tablet-1-4
           .basket.basket_tablet
             .basket__button
