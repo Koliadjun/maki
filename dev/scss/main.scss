@@ -198,6 +198,7 @@ a.icon-menu {
     top: 0;
     left: -100%;
     transition: 1s all ease;
+    z-index: 1;
     &.active {
       width: 100%;
       top: 0;
