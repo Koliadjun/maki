@@ -47,9 +47,16 @@
         .nav-menu
           ul
             each item, index in navMenu
-              li
-                a(href=item.href)
-                  .img-holder
-                    img(src="../img/header-menu-img"+index+".png")
-                  p=item.title
+              -if(index==1)
+                li(class="active")
+                  a(href=item.href)
+                    .img-holder
+                      img(src="../img/header-menu-img"+index+".png")
+                    p=item.title
+              -else
+                li
+                  a(href=item.href)
+                    .img-holder
+                      img(src="../img/header-menu-img"+index+".png")
+                    p=item.title
 

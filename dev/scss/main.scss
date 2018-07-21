@@ -38,6 +38,7 @@
     text-align: center;
     & li{
       margin-left: 5px;
+      border: 1px solid #ffffffcc;
       @include breakpoint(md)
       {
         float: left;

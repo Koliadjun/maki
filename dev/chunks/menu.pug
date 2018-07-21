@@ -1,4 +1,8 @@
 ul.clearfix
-  each item in headerMenu
-    li
-      a(href=item.href)=item.title
+  each item,index in headerMenu
+    -if(index==0)
+      li(class="active")
+        a(href=item.href)=item.title
+    -else
+      li
+        a(href=item.href)=item.title
