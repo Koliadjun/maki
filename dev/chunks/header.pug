@@ -1,11 +1,12 @@
 .header
-  .header__menu.clearfix 
-    .wrapper
+  .header__menu
+    .wrapper.position-relative
       .menu__opener
         a.icon-menu
           -for(var i=0; i<3; i++)
             span
-      include menu 
+      .menu.clearfix       
+        include menu 
       .search-box
         .search-box__input
           input(type="text")
@@ -15,11 +16,9 @@
     .wrapper
       .row.clearfix
         .col-tablet-1-4
-          .logo
-            .logo__img
-              a(href="index.html")
-                img(src="../img/logo.png")
-            .logo__title Интернет-магазин цветов
+          a(href="index.html" class="logo")
+            img(src="../img/logo.png")
+            p Интернет-магазин цветов
         .col-tablet-2-4
           .flex-contacts-wrap
             .contacts
@@ -31,10 +30,11 @@
                 a(href='tel:8(351) 567 21 46')| 8(351) 
                   span 567 21 46
         .col-tablet-1-4
-          .basket.basket_tablet
+          .basket
             .basket__button
-              a(href="order.html")
-                img(src='../img/basket.png')
+              .button.button_rose
+                a(href="order.html") корзина
+                i.icon.icon-basket-icon 
   .header__nav-menu
     .wrapper
       .row

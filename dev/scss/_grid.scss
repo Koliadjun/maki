@@ -3,6 +3,9 @@
   padding: 0 $ofsets;
   margin: 0 auto;
 }
+.position-relative{
+  position: relative;
+}
 .row{
   margin: 0 ($ofsets)*-1;
 }

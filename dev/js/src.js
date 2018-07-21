@@ -34,7 +34,7 @@ $(document).on('click',function(e){
     document.querySelector('.search-box__input').classList.remove('selected');
   }
 })
-$('.catalog__filter').on('click',function(){
+$('.catalog__filter-button').on('click',function(){
   $('.catalog').toggleClass("catalog_with-filter");
   $('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
   $('.catalog__filter').toggleClass("catalog__filter_filtered");
@@ -62,10 +62,10 @@ function callback() {
   filterScrollY=windowScroled-catalogOffset;
   if ((document.body.getBoundingClientRect()).top > scrollPos){
     if (windowScroled+bottom<catalogHeight+catalogOffset){
-     filterScrollY=windowScroled+bottom-catalogOffset-filterHeight; 
+     filterScrollY=windowScroled+bottom-catalogOffset-filterHeight-43; 
     }
     if (windowScroled+bottom>catalogHeight+catalogOffset){
-     filterScrollY=catalogHeight-filterHeight; 
+     filterScrollY=catalogHeight-filterHeight-43; 
     }
     if (filterScrollY<0){
      filterScrollY=0; 
@@ -82,6 +82,18 @@ function callback() {
     $('.catalog__filter').css("top", filterScrollY+'px');
   scrollPos = (document.body.getBoundingClientRect()).top;
 }
-
+  $( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+  } );
  
 

@@ -32,16 +32,18 @@
   cursor: pointer;
   padding: 20px;
 }
-ul.menu{
-  list-style: none;
-  text-align: center;
-  & li{
-    margin-right: 20px;
-    & a{
-      display: block;
-      text-decoration: none;
-      color: inherit;
-      padding: 25px 15px;
+.menu{
+  & ul{
+    list-style: none;
+    text-align: center;
+    & li{
+      margin-right: 20px;
+      & a{
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 25px 15px;
+      }
     }
   }
 }
@@ -159,20 +161,20 @@ a.icon-menu {
       cursor: pointer;
     }
     &:before{
-      top:8px;
-      left: 8px;
+      top: 9px;
+      left: 9px;
       content: '';
       position: absolute;
       display: block;
-      width: 13px;
-      height: 13px;
+      width: 11px;
+      height: 11px;
       border-radius: 14px;
       border: 2px solid #525252;
     }
     &:after{
       content: '';
-      right: 5px;
-      bottom: 9px;
+      right: 6px;
+      bottom: 10px;
       transform: rotate(45deg);
       position: absolute;
       display: block;
@@ -223,12 +225,14 @@ a.icon-menu {
     background: #ffffffde;
   }
 }
-.logo{
+a.logo{
+  display: block;
   margin-bottom: $ofsets;
-  &__img{
-    margin-bottom: $ofsets;
+  text-decoration: none;
+  img{
+      margin-bottom: $ofsets;
   }
-  &__title{
+  p{
     font-size: 12px;
     color: #33333399
   }
@@ -261,6 +265,7 @@ a.icon-menu {
     }
   }
   &__tel{
+    white-space: nowrap;
     & a{
       color: #ff9999;
       font-size: 15px;
@@ -289,14 +294,16 @@ a.icon-menu {
 }
 .basket{
   text-align: center;
-  &_tablet{
-    @include breakpoint(md)
-    {
-      text-align: right;
-    }
+  @include breakpoint(md)
+  {
+    text-align: right;
   }
   &__button{
-
+    text-align: right;
+    position: relative;
+    width: 135px;
+    height: 40px;
+    display: inline-block;
   }
 }
 ul.nav-menu{
@@ -333,7 +340,18 @@ ul.nav-menu{
   text-align: center;
   color: white;
   transition: 1s all ease;
+  &__filter-button{
+    position: absolute;
+    top:0;
+    text-align: right;
+    right: 0px;
+    overflow: hidden;
+    width: 120px;
+    height: 40px;
+  }
   &__filter{
+    overflow: hidden;
+    margin-top: 45px;
     transition: 1s all ease;
     position: absolute;
     top:0;
@@ -344,8 +362,7 @@ ul.nav-menu{
       {
         display: block; 
       }
-    &_filtered{
-      overflow: hidden;
+    &_filtered{   
        @include breakpoint(md)
       {  
         width: 25%;
@@ -379,59 +396,79 @@ ul.nav-menu{
     margin-bottom: $ofsets;
   }
   &__button{
-
+    width: 135px;
+    height: 40px;
+    margin: 2px auto;
   }
 }
 .button{
-  button{
-    position: relative;
-    text-transform: uppercase;
-    width: 135px;
-    height: 40px;
-    border: 1px solid #959595;
-    background: #fff;
-    cursor: pointer;
-    &.active{
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
-      background: #ffaaaa; /* Old browsers */
-      background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-      color: #fff;
-      border: 0;
-    }
-    &:hover{
-      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
-      background: #ffaaaa; /* Old browsers */
-      background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-      color: #fff;
-      border: 0;
-    }
-    &:focus{
-      outline: 0;
-    }
-  }
-}
-.button_rose{
+  position: relative;
+  text-transform: uppercase;
+  border: 1px solid #959595;
+  background: #fff;
+  cursor: pointer;
   & button{
+    width: inherit;
+    height: inherit;
+  }
+  & i{
+      position: absolute;
+      background-color: transparent;
+      top: 30%;
+      left: 12%;
+    }
+  & a{
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px;
+    font-size: 15px;
+  }
+  &.active{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
     background: #ffaaaa; /* Old browsers */
     background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-    color: #fff;
+    & a{
+      color: #fff;
+      border: 0;      
+    }
+  }
+  &:hover{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
+    background: #ffaaaa; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+    & a{
+      color: #fff;
+    }
     border: 0;
+  }
+  &:focus{
+    outline: 0;
+  }
+}
+.button_rose{
+  background: #ffaaaa; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+  border: 0;
+  & a{
+    color: #fff;
   }
 }
 .button_rose-border{
-  & button{
-    border: 1px solid #ffa8a8;
+  border: 1px solid #ffa8a8;
+  & a{
+    color: #999999;
   }
 }
+
 .news{
   color: #666666;
   text-align: left;
@@ -594,6 +631,8 @@ ul.nav-menu{
   }
   &__button{
     text-align: center;
+    width: 135px;
+    height: 40px;
   }
 }
 .review{
