@@ -34,11 +34,19 @@ $(document).on('click',function(e){
     document.querySelector('.search-box__input').classList.remove('selected');
   }
 })
-$('.catalog__filter-button').on('click',function(){
+$('').on('click',function(){
   $('.catalog').toggleClass("catalog_with-filter");
   $('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
   $('.catalog__filter').toggleClass("catalog__filter_filtered");
   $('.col-tablet-1-3').toggleClass("col-tablet-1-3_with-filter");
+})
+$('.nav-menu>ul>li').on('click',function(){
+  $('.nav-menu>ul>li').removeClass("active");
+  $(this).addClass("active");
+})
+$('.menu>ul>li').on('click',function(){
+  $('.menu>ul>li').removeClass("active");
+  $(this).addClass("active");
 })
 var scrollPos = 0;
 window.addEventListener('scroll', throttle(callback, 10));

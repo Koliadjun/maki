@@ -5,7 +5,7 @@
         a.icon-menu
           -for(var i=0; i<3; i++)
             span
-      .menu.clearfix       
+      .menu       
         include menu 
       .search-box
         .search-box__input
@@ -35,14 +35,21 @@
               .button.button_rose
                 a(href="order.html") корзина
                 i.icon.icon-basket-icon 
+            .basket__info
+              span 10 
+              p товаров
+              br
+              p не сумму 
+              span  1000 руб.
   .header__nav-menu
     .wrapper
       .row
-        ul.nav-menu
-          each item, index in navMenu
-            li
-              a(href=item.href)
-                .img-holder
-                  img(src="../img/header-menu-img"+index+".png")
-                .title=item.title
+        .nav-menu
+          ul
+            each item, index in navMenu
+              li
+                a(href=item.href)
+                  .img-holder
+                    img(src="../img/header-menu-img"+index+".png")
+                  p=item.title
 

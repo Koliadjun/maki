@@ -17,7 +17,6 @@
 .show-tablet-float-right{
   @include breakpoint(md)
   {
-    vertical-align: middle;
     float: right;
   }
 }
