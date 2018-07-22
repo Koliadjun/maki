@@ -49,6 +49,10 @@ $('.menu>ul>li').on('click',function(){
   $('.menu>ul>li').removeClass("active");
   $(this).addClass("active");
 })
+$('.catalog__page-counter>.button').on('click',function(){
+  $('.catalog__page-counter>.button').removeClass("active");
+  $(this).addClass("active");
+})
 var scrollPos = 0;
 window.addEventListener('scroll', throttle(callback, 10));
 

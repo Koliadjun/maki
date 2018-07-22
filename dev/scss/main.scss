@@ -387,8 +387,11 @@ a.logo{
     }
   }
 }
-.margig-bottom-0{
+.margin-bottom-0{
   margin-bottom: 0;
+}
+.margin-bottom-50{
+  margin-bottom: 50px;
 }
 .catalog{
   position: relative;
@@ -415,6 +418,15 @@ a.logo{
         top:0;
         left: 75%;
       }
+    }
+  }
+  &__page-counter{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+    &>.button{
+      margin: 3px;
+
     }
   }
   &__filter{
