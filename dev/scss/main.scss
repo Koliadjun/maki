@@ -2,6 +2,7 @@
 @import 'mixin';
 @import 'base';
 @import 'grid';
+@import 'icons';
 .product-preview{
   &__big-image{
     display: none;
@@ -38,7 +39,7 @@
     text-align: center;
     & li{
       margin-left: 5px;
-      border: 1px solid #ffffffcc;
+      border: 1px solid transparent;
       @include breakpoint(md)
       {
         float: left;
@@ -143,9 +144,14 @@ a.icon-menu {
       height: inherit;
       width: inherit;
       border: 1px solid #e1e1e1;
+      padding-left: 15px;
       &:focus{
         outline: 1px solid #e1e1e1;
         border: 0;
+      }
+      &::placeholder{
+        font-size: 15px;
+        color: #999999;
       }
     }
     &.selected{ 
@@ -195,6 +201,14 @@ a.icon-menu {
 }
 .search-box_filter{
   position: static;
+  .search-box__input{
+    width: 100%;
+    & input{
+      font-size: 15px;
+      color: #333333;
+    }
+  }
+
 }
 .header{
   position: relative;
@@ -373,6 +387,9 @@ a.logo{
     }
   }
 }
+.margig-bottom-0{
+  margin-bottom: 0;
+}
 .catalog{
   position: relative;
   text-align: center;
@@ -380,34 +397,164 @@ a.logo{
   transition: 1s all ease;
   &__filter-button{
     position: absolute;
-    top:0;
-    text-align: right;
+    top:-50px;
     right: 0px;
+    transition: 1s all ease;
     overflow: hidden;
     width: 120px;
     height: 40px;
+    z-index: 2;
+    text-align: right;
+    &.active{
+      position: fixed;
+      top: 20px;
+      left: 15px;
+      @include breakpoint(md)
+      {
+        position: absolute;
+        top:0;
+        left: 75%;
+      }
+    }
   }
   &__filter{
+    position: fixed;
+    background-color: #ffffffcc;
     overflow: hidden;
-    margin-top: 45px;
+    color: #333333;
+    right: -100%;
     transition: 1s all ease;
-    position: absolute;
-    top:0;
-    right: 0px;
-    width: 0;
-    display: none;
+    z-index: 1;
     @include breakpoint(md)
-      {
-        display: block; 
-      }
-    &_filtered{   
+    {
+      position: absolute;
+      margin-top: 45px;
+      transition: 1s all ease;
+      right: 0px;
+      width: 0px;
+    }
+    @include breakpoint(md)
+    {
+      position: absolute;
+      display: block;
+    }
+    &_filtered{
+      width: 100%;
+      top: 0;
+      right: 0;
+      padding: 60px 15px;    
        @include breakpoint(md)
       {  
+        padding: 0;
         width: 25%;
       }
     }
   }
 }
+.stiki-sroll{
+}
+.filter{
+  text-align: left;
+  &__value{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  &__product-chose{
+    margin-bottom: 40px;
+  }
+  & h4{
+    margin-bottom: 15px;
+  }
+}
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background: #fafafa; /* Old browsers */
+  background: -moz-linear-gradient(top, #fafafa 0%, #dcdcdc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fafafa 0%,#dcdcdc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fafafa 0%,#dcdcdc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
+  border: 1px solid #bababa;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background: #fafafa; /* Old browsers */
+  background: -moz-linear-gradient(top, #fafafa 0%, #dcdcdc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fafafa 0%,#dcdcdc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fafafa 0%,#dcdcdc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background: #fafafa; /* Old browsers */
+  background: -moz-linear-gradient(top, #fafafa 0%, #dcdcdc 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fafafa 0%,#dcdcdc 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fafafa 0%,#dcdcdc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#dcdcdc',GradientType=0 ); /* IE6-9 */
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 2px;
+  height: 6px;
+  border: solid #ff9e9e;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#slider{
+  margin: 15px 5px;
+}
+[type="checkbox"], [type="radio"] {
+    + label {   
+      pointer-events: auto;
+    }
+  }
+
 .product{
   a{
     text-decoration: none;
@@ -417,13 +564,16 @@ a.logo{
   background: #fff;
   color: #333333;
   font-size: 15px;
+  min-height: 360px;
   &__img{
     min-height: 225px;
   }
-  &__special-img{
+  &__special-icon{
     position: absolute;
     top: 0;
     left: 0;
+    width: 30px;
+    height: 30px;
   }
   &__title{
     margin-bottom: $ofsets;
@@ -445,6 +595,7 @@ a.logo{
   border: 1px solid #959595;
   background: #fff;
   cursor: pointer;
+  transition: 0.3s all ease;
   & button{
     width: inherit;
     height: inherit;
@@ -455,38 +606,36 @@ a.logo{
       top: 30%;
       left: 12%;
     }
-  & a{
+  & a,span{
     text-decoration: none;
     display: block;
     padding: 8px 15px;
     font-size: 15px;
   }
   &.active{
+    border: 1px solid #ffaaaa;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
     background: #ffaaaa; /* Old browsers */
     background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #ffaaaa;
     & a{
       color: #fff;
-      border: 0;      
     }
   }
   &:hover{
+    border: 1px solid #ffaaaa;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffaaaa+0,ef8282+100 */
     background: #ffaaaa; /* Old browsers */
     background: -moz-linear-gradient(top, #ffaaaa 0%, #ef8282 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-    & a{
+    & a,span{
       color: #fff;
     }
-    border: 0;
-  }
-  &:focus{
-    outline: 0;
   }
 }
 .button_rose{
@@ -495,18 +644,27 @@ a.logo{
   background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-  border: 0;
-  & a{
+  border: 1px solid #ffaaaa;
+  & a,span{
     color: #fff;
   }
 }
 .button_rose-border{
   border: 1px solid #ffa8a8;
-  & a{
+  & a,span{
     color: #999999;
   }
-}
 
+}
+.button_rose-filter{
+  &:hover{
+    & i{
+      width: 19px;
+      height: 15px;
+      background-position: -48px -2px;
+    }
+  }
+}
 .news{
   color: #666666;
   text-align: left;
@@ -599,38 +757,40 @@ a.logo{
     background: #f0f0f0;
   }
   &__link{
-  padding-top: 50px;
-  padding-bottom: 50px;
-  @include breakpoint(md)
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include breakpoint(md)
     {
-      column-count: 3;
+      margin-right: 25%;
     }
-  @include breakpoint(lg)
-    {
-      column-count: 3;
-      padding-right: 25%;
-      padding-left: 0;
-    }
-    & a{
-      display: block;
-      line-height: 26px;
-      padding: 2px;
-      color: #666666;
-      font-size: 13px;
+    &>ul{
       @include breakpoint(md)
       {
-        margin-right: 40px;
+        columns:3;
+      }
+      list-style: none;
+      &>li{
+        list-style: none;
+        &>a{
+        display: block;
+        line-height: 26px;
+        padding: 0 15px;
+        color: #666666;
+        font-size: 13px;
+
+        }
       }
     }
   }
   &__bottom{
     background: #ff7575;
-    padding: 5px 0;
+    padding: 15px 0;
   }
 }
 .copyrighter{
   color: #fff;
   font-size: 13px;
+  padding: 5px 0;
 }
 .reviews{
   &__title{

@@ -131,7 +131,10 @@
     padding-right: 25%;
   }
 }
-
+.col-1-2{
+  float: left;
+  width: 50%;
+}
 [class*="col-"] {
   padding: 0 $ofsets;
 }

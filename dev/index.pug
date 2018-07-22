@@ -12,19 +12,58 @@ html
             .col-desktop-1-4.col-tablet-1-3.col-phone-1-2
               include chunks/product
           .catalog__filter-button
-            .button.button_rose-border
+            .button.button_rose-border.button_rose-filter
               i.icon.icon-filter-icon
-              a() фильтр
+              span фильтр
           .catalog__filter
-            div(id="slider-range")
-            p
-              label(for="amount") Price range:
-              input(type="text", id="amount", readonly style="border:0; color:#f6931f; font-weight:bold;")   
-            .search-box.search-box_filter
-              .search-box__input
-                input(type="text")
-              .search-box__button
-                button   
+            .filter
+              form(id="filter")
+                div(id="slider")
+                .filter__value         
+                  span(id="spanOutputLeft")
+                  span(id="spanOutputRight")
+                .filter__product-chose.clearfix
+                  h4 Букеты с
+                  .col-1-2
+                    .row.clearfix
+                      label(for="flower1" class="container") Роза
+                        input(type="checkbox" name="flower1" value="Rose" checked form="filter")
+                        span(class="checkmark")
+                      label(for="flower2" class="container") Орхидея
+                        input(type="checkbox" name="flower2" value="orchid" form="filter")
+                        span(class="checkmark")
+                  .col-1-2
+                    .row.clearfix
+                      label(for="flower3" class="container")  Лилия
+                        input(type="checkbox" name="flower3" value="lily" form="filter")
+                        span(class="checkmark")
+                      label(for="flower4" class="container")  Гербер
+                        input(type="checkbox" name="flower4" value="gerbera" form="filter")
+                        span(class="checkmark")
+                .filter__product-chose.clearfix
+                  h4 Кому
+                  .col-1-2
+                    .row.clearfix
+                      label(for="flower5" class="container") Мужчина
+                        input(type="checkbox" name="flower5" value="men" checked form="filter")
+                        span(class="checkmark")
+                      label(for="flower6" class="container")  Ребенок
+                        input(type="checkbox" name="flower6" value="child" form="filter")
+                        span(class="checkmark")
+                  .col-1-2
+                    .row.clearfix
+                      label(for="flower7" class="container")  Женщина
+                        input(type="checkbox" name="flower7" value="woman" form="filter")
+                        span(class="checkmark")
+                      label(for="flower8" class="container") Семья
+                        input(type="checkbox" name="flower8" value="family" form="filter")
+                        span(class="checkmark")
+              h4 Поиск
+              .search-box.search-box_filter
+                .search-box__input
+                  input(type="text" placeholder="Что вы ищите?")
+                .search-box__button
+                  button   
       include chunks/news
     include chunks/footer
   include chunks/script

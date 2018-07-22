@@ -23,7 +23,7 @@ $(document).ready(function(){
     .zoom();
 });
 
-$('.search-box__button').on('click', function(e){
+$('#main>.search-box__button').on('click', function(e){
   document.querySelector('.search-box__input').classList.add('selected');
   document.getElementsByTagName('input')[0].focus();
 })
@@ -34,7 +34,8 @@ $(document).on('click',function(e){
     document.querySelector('.search-box__input').classList.remove('selected');
   }
 })
-$('').on('click',function(){
+$('.catalog__filter-button').on('click',function(){
+  $('.catalog__filter-button').toggleClass("active");
   $('.catalog').toggleClass("catalog_with-filter");
   $('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
   $('.catalog__filter').toggleClass("catalog__filter_filtered");
@@ -62,46 +63,60 @@ function throttle(fn, wait) {
 }
 
 function callback() {
-  var windowScroled = window.scrollY;
-  var bottom = window.innerHeight;
-  var catalogOffset = $('.catalog').offset().top;
-  var filterHeight = document.getElementsByClassName('catalog__filter')[0].clientHeight;
-  var catalogHeight = document.getElementsByClassName('catalog')[0].clientHeight;
-  filterScrollY=windowScroled-catalogOffset;
-  if ((document.body.getBoundingClientRect()).top > scrollPos){
-    if (windowScroled+bottom<catalogHeight+catalogOffset){
-     filterScrollY=windowScroled+bottom-catalogOffset-filterHeight-43; 
+  if(window.innerWidth>=768){
+    console.log('alive');
+    var windowScroled = window.scrollY;
+    var bottom = window.innerHeight;
+    var catalogOffset = $('.catalog').offset().top;
+    var filterHeight = document.getElementsByClassName('catalog__filter')[0].clientHeight;
+    var catalogHeight = document.getElementsByClassName('catalog')[0].clientHeight;
+    filterScrollY=windowScroled-catalogOffset;
+    if ((document.body.getBoundingClientRect()).top > scrollPos){
+      if (windowScroled+bottom<catalogHeight+catalogOffset){
+       filterScrollY=windowScroled+bottom-catalogOffset-filterHeight-50; 
+      }
+      if (windowScroled+bottom>catalogHeight+catalogOffset){
+       filterScrollY=catalogHeight-filterHeight-50; 
+      }
+      if (filterScrollY<0){
+       filterScrollY=0; 
+      }
+      $('.catalog__filter').css("top", filterScrollY+'px');
     }
-    if (windowScroled+bottom>catalogHeight+catalogOffset){
-     filterScrollY=catalogHeight-filterHeight-43; 
+    else
+      if (filterScrollY>catalogHeight-filterHeight-50){
+       filterScrollY=catalogHeight-filterHeight-50; 
+      }
+      if (filterScrollY<0){
+       filterScrollY=0; 
+      }
+      $('.catalog__filter').css("top", filterScrollY+'px');
     }
-    if (filterScrollY<0){
-     filterScrollY=0; 
+    else {
+       filterScrollY=0; 
+       $('.catalog__filter').css("top", filterScrollY+'px');
     }
-    $('.catalog__filter').css("top", filterScrollY+'px');
-  }
-  else
-    if (filterScrollY>catalogHeight-filterHeight){
-     filterScrollY=catalogHeight-filterHeight; 
-    }
-    if (filterScrollY<0){
-     filterScrollY=0; 
-    }
-    $('.catalog__filter').css("top", filterScrollY+'px');
   scrollPos = (document.body.getBoundingClientRect()).top;
 }
-  $( function() {
-    $( "#slider-range" ).slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 75, 300 ],
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
-    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
-      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
-  } );
- 
+$(document).ready(function () {
+    var outputSpanRight = $('#spanOutputRight');
+    var outputSpanLeft = $('#spanOutputLeft');
+    var sliderDiv = $('#slider');
 
+    sliderDiv.slider({
+        range: true,
+        min: 1000,
+        max: 10000,
+        values: [1000, 5000],
+        slide: function (event, ui) {
+            outputSpanLeft.html(ui.values[0]+' руб.');
+            outputSpanRight.html(ui.values[1]+' руб.');
+            console.log(outputSpanLeft,outputSpanRight);
+        },
+        stop: function (event, ui) {
+        }
+    });
+
+    outputSpanLeft.html(sliderDiv.slider('values', 0)+' руб.');
+    outputSpanRight.html(sliderDiv.slider('values', 1)+' руб.');
+});
