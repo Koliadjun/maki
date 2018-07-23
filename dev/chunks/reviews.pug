@@ -10,23 +10,22 @@
         .review__author=item.author
         .review__rating
           .rate-input
-          -for(var i = 5; i > 0; i--)
-            input(type="radio", id="rate"+i, value=i, name ="rate")
-            label(for="rate"+i)
+            .rate-input__inner
+              input(type="hidden" name="rating")
         .clearfix
         .review__text
           span=item.text
   .reviews__show-more
     a(href='#') Показать еще
   .reviews__input-title Написать отзыв:
-  .reviews__rate
-    .rate-input
-      -for(var i = 5; i > 0; i--)
-        input(type="radio", id="rate"+i, value=i, name ="rate")
-        label(for="rate"+i)
-  .clearfix
-  .reviews__input
-    input
-  .reviews__button
-    .button
-      button отправить
+  form()
+    .reviews__rate
+      .rate-input
+        .rate-input__inner
+          input(type="hidden" name="rating")
+    .clearfix
+    .reviews__input
+      input(type="text")
+    .reviews__button
+      .button
+        button отправить

@@ -124,3 +124,54 @@ $(document).ready(function () {
     outputSpanLeft.html(sliderDiv.slider('values', 0)+' руб.');
     outputSpanRight.html(sliderDiv.slider('values', 1)+' руб.');
 });
+
+$('form').submit(function(e){
+  e.preventDefault()
+  var data = $(this).serialize()
+  alert(data)
+})
+function rateThis(wrapWidth,rateWidth){
+  var starWidth = wrapWidth/5;
+  console.log(wrapWidth)
+  return parseFloat(rateWidth/starWidth).toFixed(1); 
+}
+$('.rate-input').mousemove(function(e){
+  if($(this).is('.done')){
+    return false;
+  }
+  var pos = e.clientX - $(e.target).offset().left;
+  $(this).find('div').width(pos)
+})
+$('.rate-input').mouseleave(function(){
+  if($(this).is('.done')){
+    return false;
+  }
+  $(this).find('div').width(0)
+})
+$('.rate-input').click(function(e){
+  $(this).addClass('done')
+  var pos = e.clientX - $(e.target).offset().left;
+  $(this).find('div').width(pos);
+  thisWidth = $(this).width();
+  $(this).find('input').val(rateThis($(this).width(),pos))
+})
+
+$('.order__count-holder').each(function(){
+  $this = this;
+  $('.minus', this).on('click',function(){
+    count = $('input', $this).val()*1
+    count --
+    if( count < 1){
+      count = 1
+    }
+    $('input', $this).val(count)
+  })
+   $('.plus', this).on('click',function(){
+    count = $('input', $this).val()*1
+    count ++
+    if( count > 99){
+      count = 99
+    }
+    $('input', $this).val(count)
+  })
+})

@@ -6,7 +6,7 @@
 .product-preview{
   &__big-image{
     display: none;
-    max-width: 300px;
+    max-width: 500px;
     &.active{
       display: block;
     }
@@ -609,8 +609,12 @@ a.logo{
   cursor: pointer;
   transition: 0.3s all ease;
   & button{
-    width: inherit;
-    height: inherit;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    text-align: center;
+    border: 0;
+    text-transform: uppercase;
   }
   & i{
       position: absolute;
@@ -618,7 +622,7 @@ a.logo{
       top: 30%;
       left: 12%;
     }
-  & a,span{
+  & a,span,button{
     text-decoration: none;
     display: block;
     padding: 8px 15px;
@@ -633,7 +637,7 @@ a.logo{
     background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
     border: 1px solid #ffaaaa;
-    & a{
+    & a,button{
       color: #fff;
     }
   }
@@ -645,7 +649,7 @@ a.logo{
     background: -webkit-linear-gradient(top, #ffaaaa 0%,#ef8282 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #ffaaaa 0%,#ef8282 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaaaa', endColorstr='#ef8282',GradientType=0 ); /* IE6-9 */
-    & a,span{
+    & a,span,button{
       color: #fff;
     }
   }
@@ -843,6 +847,7 @@ a.logo{
     text-align: center;
     width: 135px;
     height: 40px;
+    margin: auto;
   }
 }
 .review{
@@ -860,6 +865,7 @@ a.logo{
     font-weight: bold;
     float: left;
     margin-bottom: 10px;
+    color: #666666;
   }
   &__rating{
     float: right;
@@ -979,4 +985,20 @@ a.logo{
       font-weight: bold;
     }
   }
+}
+.rate-input{
+  position:relative;
+  width: 80px;
+  height: 15px;
+  &__inner{
+    position: absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    background: url('../icons/spritesheet-stars.png');
+    width: 0;
+    background-position: 0px 0px;;
+  }
+  background: url('../icons/spritesheet-stars.png');
+  background-position: 0px -19px;;
 }
