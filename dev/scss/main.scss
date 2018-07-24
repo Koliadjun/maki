@@ -401,13 +401,25 @@ a.logo{
   &__filter-button{
     position: absolute;
     top:-50px;
-    right: 0px;
+    left: 35%;
     transition: 1s all ease;
     overflow: hidden;
     width: 120px;
     height: 40px;
     z-index: 2;
     text-align: right;
+    @include breakpoint(sm)
+    {
+      left: 75%;
+    }
+    @include breakpoint(md)
+    {
+      left: 85%;
+    }
+    @include breakpoint(lg)
+    {
+      left: 87%;
+    }
     &.active{
       position: fixed;
       top: 20px;

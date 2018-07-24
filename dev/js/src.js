@@ -28,7 +28,7 @@ $('#main>.search-box__button').on('click', function(e){
   document.getElementsByTagName('input')[0].focus();
 })
 $(document).on('click',function(e){
-  if (e.toElement.localName == 'button' || e.toElement.localName == 'input' || e.toElement.className == 'search-box__button' ){
+  if (e.toElement.localName == 'button' || e.toElement.className == 'search-box__button' ){
    return false;
   }else{
     document.querySelector('.search-box__input').classList.remove('selected');
@@ -65,7 +65,9 @@ function throttle(fn, wait) {
     }
   }
 }
-
+$( window ).resize(function() {
+  callback();
+});
 function callback() {
   if(window.innerWidth>=768){
     console.log('alive');
@@ -125,11 +127,11 @@ $(document).ready(function () {
     outputSpanRight.html(sliderDiv.slider('values', 1)+' руб.');
 });
 
-$('form').submit(function(e){
+/*$('form').submit(function(e){
   e.preventDefault()
   var data = $(this).serialize()
   alert(data)
-})
+})*/
 function rateThis(wrapWidth,rateWidth){
   var starWidth = wrapWidth/5;
   console.log(wrapWidth)
