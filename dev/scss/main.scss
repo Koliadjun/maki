@@ -725,10 +725,6 @@ a.logo{
     text-align: left;
   }
   margin: 20px auto 15px auto;
-  @include breakpoint(lg)
-    {
-      margin: 0;
-    }
   a{
     text-decoration: none;
     color: inherit;
