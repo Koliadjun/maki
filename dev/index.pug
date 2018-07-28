@@ -68,13 +68,11 @@ html
           ul
             - for (var i = 1; i < 5; i++)
               if(i==2)
-                li
-                  .button.active
-                    a(href='#')=i
+                li.active
+                  a(href='#')=i
               else
                 li 
-                  .button
-                    a(href='#')=i         
+                  a(href='#')=i         
       include chunks/news
     include chunks/footer
   include chunks/script
