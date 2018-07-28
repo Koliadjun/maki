@@ -147,10 +147,14 @@
     display: none;
   }
 }
-.col-tablet-offset-1-2{
+.col-tablet-offset-1-2:nth-last-child(1):nth-last-child(odd){
   margin: unset;
   @include breakpoint(sm)
   {
     margin-left: 25%;
+  }
+  @include breakpoint(md)
+  {
+    margin-left: unset;
   }
 }
