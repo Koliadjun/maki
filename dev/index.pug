@@ -64,14 +64,17 @@ html
                   input(type="text" placeholder="Что вы ищите?")
                 .search-box__button
                   button  
-        .catalog__page-counter
-          - for (var i = 1; i < 5; i++)
-            if(i==2)
-              .button.active
-                a(href='#')=i
-            else 
-             .button
-                a(href='#')=i         
+        .catalog__pagination
+          ul
+            - for (var i = 1; i < 5; i++)
+              if(i==2)
+                li
+                  .button.active
+                    a(href='#')=i
+              else
+                li 
+                  .button
+                    a(href='#')=i         
       include chunks/news
     include chunks/footer
   include chunks/script

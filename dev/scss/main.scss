@@ -432,12 +432,15 @@ a.logo{
       }
     }
   }
-  &__page-counter{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 80px;
-    &>.button{
-      margin: 3px;
+  &__pagination{
+    &>ul{
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 80px;
+      &>li{
+        margin: 3px;
+      }
     }
   }
   &__filter{
@@ -696,9 +699,12 @@ a.logo{
 .content-section{
   color: #666666;
   text-align: left;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  @include breakpoint(md)
+  {
+    margin-bottom: 100px;
+  }
    &__title{
-    margin-bottom: 20px;
     font-size: 23px; 
     display: flex;
     align-items: baseline;
@@ -718,7 +724,7 @@ a.logo{
   {
     text-align: left;
   }
-  margin: 0 auto 15px auto;
+  margin: 20px auto 15px auto;
   @include breakpoint(lg)
     {
       margin: 0;

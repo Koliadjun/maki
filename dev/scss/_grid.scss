@@ -148,7 +148,7 @@
   }
 }
 .col-tablet-offset-1-2:nth-last-child(1):nth-last-child(odd){
-  margin: unset;
+  margin-left: unset;
   @include breakpoint(sm)
   {
     margin-left: 25%;
