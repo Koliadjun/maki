@@ -1,4 +1,4 @@
-#burst-12 {
+.icon-burst-12{
     z-index: 1;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fab35d+1,fbab4a+100 */
     background: #fab35d; /* Old browsers */
@@ -20,7 +20,7 @@
         font-size: 13px;
     }
 }
-#burst-12:before, #burst-12:after {
+.icon-burst-12:before, .icon-burst-12:after {
     z-index: -1;
     content: "";
     position: absolute;
@@ -35,13 +35,13 @@
     background: linear-gradient(to bottom, #fab35d 1%,#fbab4a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fab35d', endColorstr='#fbab4a',GradientType=0 ); /* IE6-9 */
 }
-#burst-12:before {
+.icon-burst-12:before {
     transform: rotate(30deg);
 }
-#burst-12:after {
+.icon-burst-12:after {
     transform: rotate(60deg);
 }
-#circle {
+.icon-circle {
     width: 140%;
     height: 140%;
    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#90ddb1+0,86caa3+100 */
@@ -63,7 +63,7 @@
         font-size: 13px;
     }
 }
-#rectangle{
+.icon-rectangle{
     width: 229%;
     height: 100%;
     border-radius: 5px;

@@ -35,11 +35,12 @@ $(document).on('click',function(e){
   }
 })
 $('.catalog__filter-button').on('click',function(){
-  $('.catalog__filter-button').toggleClass("active");
+  var catalog = $('.catalog');
+  $(this).toggleClass("active");
   $('.catalog').toggleClass("catalog_with-filter");
-  $('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
-  $('.catalog__filter').toggleClass("catalog__filter_filtered");
-  $('.col-tablet-1-3').toggleClass("col-tablet-1-3_with-filter");
+  catalog.find('.col-desktop-1-4').toggleClass("col-desktop-1-4_with-filter");
+  catalog.find('.catalog__filter').toggleClass("catalog__filter_filtered");
+  catalog.find('.col-tablet-1-3').toggleClass("col-tablet-1-3_with-filter");
 })
 $('.nav-menu>ul>li').on('click',function(){
   $('.nav-menu>ul>li').removeClass("active");
@@ -54,7 +55,10 @@ $('.catalog__page-counter>.button').on('click',function(){
   $(this).addClass("active");
 })
 var scrollPos = 0;
-window.addEventListener('scroll', throttle(callback, 10));
+
+if($('.catalog__filter').length != 0) {
+  window.addEventListener('scroll', throttle(callback, 10));
+}
 
 function throttle(fn, wait) {
   var time = Date.now();

@@ -14,6 +14,9 @@
   clear: both;
   display: block;
 }
+.show-float-right{
+  float: right;
+}
 .show-tablet-float-right{
   @include breakpoint(md)
   {
@@ -23,7 +26,6 @@
 .show-tablet-float-left{
   @include breakpoint(md)
   {
-    vertical-align: middle;
     float: left;
   }
 }
@@ -131,10 +133,24 @@
     padding-right: 25%;
   }
 }
-.col-1-2{
-  float: left;
-  width: 50%;
-}
 [class*="col-"] {
   padding: 0 $ofsets;
+}
+.show-tablet{
+  display: none;
+  @include breakpoint(sm)
+  {
+    display: block;
+  }
+  @include breakpoint(md)
+  {
+    display: none;
+  }
+}
+.col-tablet-offset-1-2{
+  margin: unset;
+  @include breakpoint(sm)
+  {
+    margin-left: 25%;
+  }
 }
